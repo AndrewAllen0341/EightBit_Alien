@@ -16,7 +16,7 @@ class Game:
         pg.mixer.init()
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         pg.display.set_caption(TITLE)
-        self.icon = pg.image.load('Icon.png')
+        self.icon = pg.image.load('venv/Images/Icon.png')
         pg.display.set_icon(self.icon)
         self.clock = pg.time.Clock()
         self.running = True
@@ -26,7 +26,7 @@ class Game:
     def load_data(self):
         # load highscore
         self.dir = path.dirname(__file__)
-        img_dir = path.join(self.dir, 'venv\Images')
+        img_dir = path.join(self.dir, 'venv/Images')
         with open(path.join(self.dir, HS_FILE), 'r') as f:
             try:
                 self.highscore = int(f.read())
@@ -36,16 +36,16 @@ class Game:
         self.spritesheethero1 = SpritesheetHero1(path.join(img_dir, SPRITESHEETHERO1))
         self.spritesheettiles = SpritesheetTiles(path.join(img_dir, SPRITESHEETTILES))
         self.spritesheetenemies = SpritesheetEnemies(path.join(img_dir, SPRITESHEETENEMIES))
-        self.titleattempt1 = pg.image.load('MenuScreen(1).png')
-        self.gameover = pg.image.load('GameOverScreen(2).jpg')
-        self.boostSound = pg.mixer.Sound('Powerup.wav')
+        self.titleattempt1 = pg.image.load('venv/Images/MenuScreen(1).png')
+        self.gameover = pg.image.load('venv/Images/GameOverScreen(2).jpg')
+        self.boostSound = pg.mixer.Sound('venv/Sounds/Powerup.wav')
         self.cloud_images = []
         for i in range(1, 4):
             self.cloud_images.append(pg.image.load(path.join(img_dir, 'Cloud{}.png'.format(i))).convert())
         # Load sounds
-        self.jumpSound = pg.mixer.Sound('Jump1.wav')
-        pg.mixer.music.load('Grasslands Theme.mp3')
-        self.death_sound = pg.mixer.Sound('Randomize3.wav')
+        self.jumpSound = pg.mixer.Sound('venv/Sounds/Jump1.wav')
+        pg.mixer.music.load('venv/Sounds/Grasslands Theme.mp3')
+        self.death_sound = pg.mixer.Sound('venv/Sounds/Randomize3.wav')
 
 
     def new(self):
